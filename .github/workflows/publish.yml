@@ -1,4 +1,4 @@
-name: Dockerfile
+name: Publish to Docker
 on:
   push:
     branches:
@@ -17,7 +17,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/Harreshh/publish-packages/game
+          images: ghcr.io/harreshh/publish-packages-publish-packages/game
           tags: type=sha
       - name: Login to GHCR
         uses: docker/login-action@v3
@@ -29,6 +29,5 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./app/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
