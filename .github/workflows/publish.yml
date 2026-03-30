@@ -31,3 +31,5 @@ jobs:
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
+
+# Trigger step-1 validation on cd branch
